@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avishka Nishada Rodrigo | Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            background: #f7f9fb;
+            margin: 0;
+            color: #222;
+        }
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+            padding: 32px;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            color: #2d6cdf;
+        }
+        h2 {
+            font-size: 1.5rem;
+            margin-top: 2rem;
+            color: #2d6cdf;
+        }
+        .about {
+            margin-bottom: 2rem;
+        }
+        .links a {
+            color: #2d6cdf;
+            text-decoration: none;
+            margin-right: 16px;
+            font-weight: 500;
+        }
+        .links a:hover {
+            text-decoration: underline;
+        }
+        .section {
+            margin-bottom: 2rem;
+        }
+        .blog {
+            background: #eaf1fb;
+            padding: 16px;
+            border-radius: 8px;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        .edu {
+            background: #f3f7fa;
+            padding: 16px;
+            border-radius: 8px;
+        }
+        .skills {
+            background: linear-gradient(90deg, #eaf1fb 0%, #f3f7fa 100%);
+            padding: 24px 16px;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 8px rgba(45,108,223,0.07);
+        }
+        .skills-title {
+            text-align: left;
+            font-size: 1.3rem;
+            color: #2d6cdf;
+            margin-bottom: 18px;
+        }
+        #skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
+            justify-content: flex-start;
+        }
+        .skill-logo {
+            width: 56px;
+            height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #fff;
+            border-radius: 50%;
+            box-shadow: 0 1px 6px rgba(45,108,223,0.10);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .skill-logo:hover {
+            transform: scale(1.12) rotate(-4deg);
+            box-shadow: 0 4px 16px rgba(45,108,223,0.18);
+        }
+        @media (max-width: 600px) {
+            .container {
+                padding: 12px;
+            }
+            h1 {
+                font-size: 2rem;
+            }
+            #skills-list {
+                gap: 10px;
+            }
+            .skill-logo {
+                width: 38px;
+                height: 38px;
+            }
+        }
+    </style>
+    <script src="skills.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <div style="display:flex;justify-content:center;margin-bottom:24px;">
+                <!-- Profile photo removed -->
+        </div>
+        <h1>Avishka Nishada Rodrigo</h1>
+        <div class="about">
+            <strong>Software Engineering Undergraduate</strong>
+            <p>I love understanding how digital systems work and feel excited about all the amazing things technology can do. Solving tough problems and thinking of smart solutions really inspires me. I'm always curious about new trends in tech, and learning about them helps me grow. I enjoy taking complex ideas and making them easier to understand — it helps me see how to use them in real life. For me, technology is not just a tool, but a spark for curiosity and creativity.</p>
+        </div>
+        <div class="section social-section" style="background:#eaf1fb;padding:16px 16px 24px 16px;border-radius:12px;box-shadow:0 2px 8px rgba(45,108,223,0.07);margin-bottom:2rem;">
+            <h2 style="margin-bottom:12px;">Social Media</h2>
+            <div class="social-links" style="display:flex;gap:24px;">
+                <a href="https://www.linkedin.com/in/avishkanishada" target="_blank" style="display:flex;align-items:center;gap:8px;padding:8px 16px;background:#0077b5;color:#fff;border-radius:8px;text-decoration:none;font-weight:500;transition:background 0.2s;">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/linkedin.svg" alt="LinkedIn" style="width:24px;height:24px;filter:invert(1) grayscale(1);">
+                    LinkedIn
+                </a>
+                <a href="https://github.com/Avishka-4" target="_blank" style="display:flex;align-items:center;gap:8px;padding:8px 16px;background:#24292f;color:#fff;border-radius:8px;text-decoration:none;font-weight:500;transition:background 0.2s;">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/github.svg" alt="GitHub" style="width:24px;height:24px;filter:invert(1) grayscale(1);">
+                    GitHub
+                </a>
+            </div>
+        </div>
+        <div class="skills">
+            <div class="skills-title">Skills & Proficiency</div>
+            <div id="skills-list"></div>
+        </div>
+        <div class="section blog">
+            <h2>Rodrigo LABS</h2>
+            <p>
+                Rodrigo LABS is my technology-focused blog where I share ideas, experiments, and innovative solutions in Computer Science. I created this space to document my learning journey, showcase projects, and explore new tech trends. If you're interested in technology and creative problem-solving, I invite you to check it out!
+            </p>
+            <a href="https://rodrigolabs.blogspot.com/" target="_blank" style="display:inline-block;margin-top:10px;padding:8px 18px;background:#2d6cdf;color:#fff;border-radius:6px;text-decoration:none;font-weight:500;transition:background 0.2s;">Visit Rodrigo LABS</a>
+        </div>
+        <div class="section edu">
+            <h2>Education</h2>
+            <div style="margin-bottom:18px;">
+                <strong>Sabaragamuwa University of Sri Lanka</strong><br>
+                Bachelor's degree, Software Engineering<br>
+                2024 - 2028
+            </div>
+            <div>
+                <strong>St.Joseph Vaz College</strong><br>
+                2022
+                <ul style="margin-top:8px;">
+                    <li>✨Advanced Level Examination: [2019-2023] BBC (Physical Science Stream: Combined Maths, Chemistry, Physics)</li>
+                    <li>✨Ordinary Level Examination: [up to 2018] 9A</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
