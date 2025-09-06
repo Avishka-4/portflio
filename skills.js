@@ -1,6 +1,6 @@
-// Debug-friendly skills rendering
+// skills.js – clean production version (with minimal silent retry)
 
-const skills = [
+const SKILLS = [
   { name: 'C++', icon: 'cplusplus' },
   { name: 'Python', icon: 'python' },
   { name: 'Django', icon: 'django' },
@@ -23,70 +23,59 @@ const skills = [
   { name: '.NET', icon: 'dotnet' }
 ];
 
-const ICON_COLOR = '2d6cdf';              // hex without #
-const ICON_CDN = 'https://cdn.simpleicons.org'; 
-// Example full URL: https://cdn.simpleicons.org/python/2d6cdf
+const ICON_COLOR = '2d6cdf';
+const ICON_BASE = 'https://cdn.simpleicons.org';
+// Example final URL: https://cdn.simpleicons.org/python/2d6cdf
 
-function log(msg) {
-  console.log('[skills]', msg);
-  const dbg = document.getElementById('skills-debug');
-  if (dbg) {
-    const line = document.createElement('div');
-    line.textContent = msg;
-    dbg.appendChild(line);
-  }
+function buildIconURL(slug) {
+  return `${ICON_BASE}/${slug}/${ICON_COLOR}`;
+}
+
+function createSkillElement(skill) {
+  const item = document.createElement('div');
+  item.className = 'skill-item';
+  item.title = skill.name;
+
+  const logo = document.createElement('div');
+  logo.className = 'skill-logo';
+
+  const img = document.createElement('img');
+  img.alt = skill.name;
+  img.decoding = 'async';
+  img.loading = 'lazy';
+  img.src = buildIconURL(skill.icon);
+
+  // Retry once on error before fallback
+  let tried = false;
+  img.addEventListener('error', () => {
+    if (!tried) {
+      tried = true;
+      setTimeout(() => { img.src = buildIconURL(skill.icon); }, 300);
+      return;
+    }
+    logo.innerHTML = '';
+    const fb = document.createElement('div');
+    fb.className = 'skill-fallback';
+    fb.textContent = skill.name.replace(/[^A-Za-z+#.]/g,'').slice(0,6);
+    logo.appendChild(fb);
+  });
+
+  logo.appendChild(img);
+
+  const label = document.createElement('span');
+  label.textContent = skill.name;
+
+  item.appendChild(logo);
+  item.appendChild(label);
+  return item;
 }
 
 function renderSkills() {
-  log('DOMContentLoaded fired.');
-  const skillsList = document.getElementById('skills-list');
-  if (!skillsList) {
-    log('ERROR: #skills-list not found.');
-    return;
-  }
-
-  skillsList.innerHTML = '';
-  const fragment = document.createDocumentFragment();
-
-  skills.forEach(skill => {
-    const item = document.createElement('div');
-    item.className = 'skill-item';
-    item.title = skill.name;
-
-    const logo = document.createElement('div');
-    logo.className = 'skill-logo';
-
-    const img = document.createElement('img');
-    img.alt = skill.name;
-    img.decoding = 'async';
-    img.loading = 'lazy';
-    img.src = `${ICON_CDN}/${skill.icon}/${ICON_COLOR}`;
-
-    img.addEventListener('load', () => {
-      log(`Loaded: ${skill.icon}`);
-    });
-
-    img.addEventListener('error', () => {
-      log(`FAILED: ${skill.icon} – showing fallback`);
-      logo.innerHTML = '';
-      const fallback = document.createElement('div');
-      fallback.className = 'skill-fallback';
-      fallback.textContent = skill.name.replace(/[^A-Za-z+#.]/g,'').slice(0,6);
-      logo.appendChild(fallback);
-    });
-
-    logo.appendChild(img);
-
-    const label = document.createElement('span');
-    label.textContent = skill.name;
-
-    item.appendChild(logo);
-    item.appendChild(label);
-    fragment.appendChild(item);
-  });
-
-  skillsList.appendChild(fragment);
-  log('Finished rendering skills.');
+  const list = document.getElementById('skills-list');
+  if (!list) return;
+  const frag = document.createDocumentFragment();
+  SKILLS.forEach(skill => frag.appendChild(createSkillElement(skill)));
+  list.appendChild(frag);
 }
 
 document.addEventListener('DOMContentLoaded', renderSkills);
