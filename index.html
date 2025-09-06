@@ -6,138 +6,270 @@
   <title>Avishka Nishada Rodrigo | Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
+  <!-- Performance hints -->
+  <link rel="preconnect" href="https://cdn.simpleicons.org" crossorigin>
+  <link rel="dns-prefetch" href="https://cdn.simpleicons.org">
+
   <style>
+    :root {
+      --primary:#2d6cdf;
+      --panel-grad:linear-gradient(90deg,#eaf1fb 0%,#f3f7fa 100%);
+      --radius:12px;
+    }
     body {
-      font-family: 'Roboto', Arial, sans-serif;
-      background: #f7f9fb;
-      margin: 0;
-      color: #222;
+      font-family:'Roboto',Arial,sans-serif;
+      background:#f7f9fb;
+      margin:0;
+      color:#222;
+      -webkit-font-smoothing:antialiased;
     }
     .container {
-      max-width: 800px;
-      margin: 40px auto;
-      background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 2px 16px rgba(0,0,0,0.08);
-      padding: 32px;
+      max-width: 960px;
+      margin:40px auto;
+      background:#fff;
+      border-radius:var(--radius);
+      box-shadow:0 2px 16px rgba(0,0,0,0.08);
+      padding:32px 40px 56px;
     }
     h1 {
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
-      color: #2d6cdf;
+      font-size:2.5rem;
+      margin:0 0 0.75rem;
+      color:var(--primary);
+      letter-spacing:.5px;
     }
     h2 {
-      font-size: 1.5rem;
-      margin-top: 2rem;
-      color: #2d6cdf;
+      font-size:1.55rem;
+      margin:2.4rem 0 1rem;
+      color:var(--primary);
     }
-    .about { margin-bottom: 2rem; }
-    .section { margin-bottom: 2rem; }
-    .skills {
-      background: linear-gradient(90deg,#eaf1fb 0%,#f3f7fa 100%);
-      padding: 24px 16px;
-      border-radius: 12px;
-      box-shadow: 0 2px 8px rgba(45,108,223,0.07);
+    p { line-height:1.55; }
+    a { color:var(--primary); }
+    a:hover { text-decoration:none; }
+
+    /* Social */
+    .social-section {
+      background:#eaf1fb;
+      padding:16px 16px 24px;
+      border-radius:var(--radius);
+      box-shadow:0 2px 8px rgba(45,108,223,0.07);
     }
-    .skills-title {
-      font-size: 1.3rem;
-      color: #2d6cdf;
-      margin: 0 0 18px;
+    .social-links {
+      display:flex;
+      gap:24px;
+      flex-wrap:wrap;
     }
-    #skills-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 18px;
-      justify-content: flex-start;
-    }
-    .skill-item {
-      width: 84px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      font-size: 12px;
-      text-align: center;
-      gap: 6px;
-    }
-    .skill-logo {
-      width: 56px;
-      height: 56px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: #fff;
-      border-radius: 50%;
-      box-shadow: 0 1px 6px rgba(45,108,223,0.10);
-      transition: transform 0.2s, box-shadow 0.2s;
-      position: relative;
-      overflow: hidden;
-    }
-    .skill-logo:hover {
-      transform: scale(1.12) rotate(-4deg);
-      box-shadow: 0 4px 16px rgba(45,108,223,0.18);
-    }
-    .skill-logo img {
-      width: 32px;
-      height: 32px;
-      display: block;
-    }
-    .skill-fallback {
-      font-size: 10px;
-      color: #2d6cdf;
-      font-weight: 600;
-      padding: 4px;
-      line-height: 1.1;
-    }
-    /* Social buttons (kept minimal here) */
     .social-links a {
-      display:flex;align-items:center;gap:8px;
+      display:flex;
+      align-items:center;
+      gap:8px;
       padding:8px 16px;
       border-radius:8px;
       text-decoration:none;
       font-weight:500;
       color:#fff;
-      transition:background .2s;
+      font-size:.95rem;
+      transition:transform .18s, box-shadow .18s;
+      box-shadow:0 2px 6px rgba(0,0,0,.15);
     }
-    .social-links img { width:24px;height:24px;filter:invert(1) grayscale(1); }
-    @media (max-width:600px){
-      .container { padding:12px; }
-      h1 { font-size:2rem; }
-      #skills-list { gap:10px; }
-      .skill-logo { width:44px;height:44px; }
-      .skill-logo img { width:26px;height:26px; }
-      .skill-item { width:66px; }
+    .social-links a:hover {
+      transform:translateY(-2px);
+      box-shadow:0 4px 14px rgba(0,0,0,.18);
+    }
+    .social-links img {
+      width:22px;
+      height:22px;
+      filter:invert(1) grayscale(1);
+    }
+    .btn-linkedin { background:#0077b5; }
+    .btn-github { background:#24292f; }
+    .btn-twitter { background:#1da1f2; }
+
+    /* Skills */
+    .skills-panel {
+      background:var(--panel-grad);
+      padding:28px 20px 34px;
+      border-radius:var(--radius);
+      box-shadow:0 2px 8px rgba(45,108,223,0.07);
+      margin-top:32px;
+    }
+    .skills-title {
+      font-size:1.25rem;
+      font-weight:700;
+      color:var(--primary);
+      margin:0 0 20px;
+    }
+    #skills-list {
+      display:flex;
+      flex-wrap:wrap;
+      gap:22px;
+    }
+    .skill-item {
+      width:86px;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap:8px;
+      font-size:12px;
+      text-align:center;
+      user-select:none;
+    }
+    .skill-logo {
+      width:58px;
+      height:58px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:#fff;
+      border-radius:50%;
+      box-shadow:0 1px 6px rgba(45,108,223,0.11);
+      transition:transform .22s, box-shadow .22s;
+      position:relative;
+      overflow:hidden;
+    }
+    .skill-logo:hover {
+      transform:scale(1.14) rotate(-6deg);
+      box-shadow:0 5px 18px rgba(45,108,223,0.25);
+    }
+    .skill-logo img {
+      width:34px;
+      height:34px;
+      display:block;
+    }
+    .skill-fallback {
+      font-size:11px;
+      font-weight:600;
+      color:var(--primary);
+      padding:4px;
+      line-height:1.05;
+      letter-spacing:.5px;
+    }
+
+    /* Sections panels */
+    .panel {
+      background:#f3f7fa;
+      padding:18px 22px 26px;
+      border-radius:var(--radius);
+      box-shadow:0 2px 8px rgba(45,108,223,0.07);
+      margin-top:34px;
+    }
+    .projects-panel { background:#eaf1fb; }
+    .blog-panel { background:#eaf1fb; }
+    .panel h2 { margin-top:0; }
+    .cta-btn {
+      display:inline-block;
+      margin-top:10px;
+      padding:10px 20px;
+      background:var(--primary);
+      color:#fff;
+      border-radius:6px;
+      text-decoration:none;
+      font-weight:500;
+      transition:background .25s, transform .2s;
+      box-shadow:0 2px 10px rgba(45,108,223,.28);
+    }
+    .cta-btn:hover {
+      background:#1f56b3;
+      transform:translateY(-2px);
+    }
+    ul { margin:8px 0 0; padding-left:20px; }
+
+    footer {
+      margin-top:60px;
+      font-size:12px;
+      text-align:center;
+      color:#666;
+    }
+
+    @media (max-width:720px){
+      .container { padding:28px 22px 52px; }
+      h1 { font-size:2.05rem; }
+      #skills-list { gap:16px; }
+      .skill-item { width:74px; }
+      .skill-logo { width:50px; height:50px; }
+      .skill-logo img { width:30px; height:30px; }
     }
   </style>
-
-  <!-- Load script at end of body or use defer -->
   <script src="skills.js" defer></script>
 </head>
 <body>
   <div class="container">
+
     <h1>Avishka Nishada Rodrigo</h1>
 
-    <div class="section social-section" style="background:#eaf1fb;padding:16px 16px 24px;border-radius:12px;box-shadow:0 2px 8px rgba(45,108,223,0.07);">
-      <h2 style="margin:0 0 12px;">Social Media</h2>
-      <div class="social-links" style="display:flex;gap:24px;flex-wrap:wrap;">
-        <a href="https://www.linkedin.com/in/avishkanishada" target="_blank" style="background:#0077b5;">
-          <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/linkedin.svg" alt="LinkedIn">LinkedIn
+    <section class="about">
+      <p><strong>Software Engineering Undergraduate</strong></p>
+      <p>I love understanding how digital systems work and feel excited about the amazing things technology can do. Solving complex problems and designing smart solutions motivate me every day. I’m always curious about emerging trends and enjoy translating difficult concepts into practical applications.</p>
+    </section>
+
+    <section class="social-section">
+      <h2>Social Media</h2>
+      <div class="social-links">
+        <a class="btn-linkedin" href="https://www.linkedin.com/in/avishkanishada" target="_blank" rel="noopener">
+          <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/linkedin.svg" alt="">
+          LinkedIn
         </a>
-        <a href="https://github.com/Avishka-4" target="_blank" style="background:#24292f;">
-          <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/github.svg" alt="GitHub">GitHub
+        <a class="btn-github" href="https://github.com/Avishka-4" target="_blank" rel="noopener">
+          <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/github.svg" alt="">
+          GitHub
         </a>
-        <a href="https://x.com/RodrigoRLABS?t=-ZnZQTcGB_5EayEClZXzDA&s=35" target="_blank" style="background:#1da1f2;">
-          <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/twitter.svg" alt="Twitter">Twitter
+        <a class="btn-twitter" href="https://x.com/RodrigoRLABS?t=-ZnZQTcGB_5EayEClZXzDA&s=35" target="_blank" rel="noopener">
+          <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/twitter.svg" alt="">
+          Twitter
         </a>
       </div>
-    </div>
+    </section>
 
-    <div class="skills">
+    <section class="skills-panel">
       <div class="skills-title">Skills & Proficiency</div>
-      <div id="skills-list"></div>
-      <div id="skills-debug" style="margin-top:12px;font-size:11px;color:#666;"></div>
-    </div>
+      <div id="skills-list" aria-label="List of technical skills"></div>
+    </section>
 
-    <!-- (Other sections omitted for brevity) -->
+    <section class="panel projects-panel" id="projects">
+      <h2>Projects</h2>
+      <p>Explore some of my featured projects (add project cards or links here):</p>
+      <ul>
+        <li>Project A – Short description.</li>
+        <li>Project B – Short description.</li>
+        <li>Project C – Short description.</li>
+      </ul>
+    </section>
+
+    <section class="panel publications-panel" id="publications">
+      <h2>Publications</h2>
+      <p>Recent articles or academic work can be listed here.</p>
+    </section>
+
+    <section class="panel blog-panel" id="blog">
+      <h2>Rodrigo LABS</h2>
+      <p>Rodrigo LABS is my technology-focused blog where I share ideas, experiments, and innovative solutions in Computer Science. I document my learning journey, showcase projects, and explore new tech trends.</p>
+      <a href="https://rodrigolabs.blogspot.com/" target="_blank" rel="noopener" class="cta-btn">Visit Rodrigo LABS</a>
+    </section>
+
+    <section class="panel edu-panel" id="education">
+      <h2>Education</h2>
+      <div style="margin-bottom:18px;">
+        <strong>Sabaragamuwa University of Sri Lanka</strong><br>
+        Bachelor's Degree, Software Engineering (2024 - 2028)
+      </div>
+      <div>
+        <strong>St. Joseph Vaz College</strong><br>
+        2022
+        <ul>
+          <li>Advanced Level (2019–2023): BBC (Physical Science – Combined Maths, Chemistry, Physics)</li>
+          <li>Ordinary Level (up to 2018): 9 A passes</li>
+        </ul>
+      </div>
+    </section>
+
+    <footer>
+      © <span id="year"></span> Avishka Nishada Rodrigo
+    </footer>
+
   </div>
+
+  <script>
+    // Set footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
