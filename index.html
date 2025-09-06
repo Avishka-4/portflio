@@ -92,6 +92,10 @@
             transform: scale(1.12) rotate(-4deg);
             box-shadow: 0 4px 16px rgba(45,108,223,0.18);
         }
+        /* Make sure the icons are visible by adding color */
+        .skill-logo img {
+            filter: invert(40%) sepia(50%) saturate(1000%) hue-rotate(200deg) brightness(90%) contrast(95%);
+        }
         @media (max-width: 600px) {
             .container {
                 padding: 12px;
@@ -135,8 +139,9 @@
                     <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/twitter.svg" alt="Twitter" style="width:24px;height:24px;filter:invert(1) grayscale(1);">
                     Twitter
                 </a>
-             </div>
+            </div>
         </div>
+        
         <div class="skills">
             <div class="skills-title">Skills & Proficiency</div>
             <div id="skills-list"></div>
