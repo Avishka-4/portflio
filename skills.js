@@ -3,7 +3,7 @@ const skills = [
   { name: 'C++', icon: 'cplusplus' },
   { name: 'Python', icon: 'python' },
   { name: 'Django', icon: 'django' },
-  { name: 'Java', icon: 'java' },         // <--- This works with CDN!
+  { name: 'Java', icon: 'java' },
   { name: 'HTML5', icon: 'html5' },
   { name: 'React', icon: 'react' },
   { name: 'React Native', icon: 'react' },
