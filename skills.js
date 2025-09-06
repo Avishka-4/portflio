@@ -22,38 +22,33 @@ const skills = [
   { name: '.NET', icon: 'dotnet' }
 ];
 
-// Function to generate and display the skills icons
+// Function to render skills on the page
 function renderSkills() {
-  const skillsContainer = document.getElementById('skills-container');
+  const skillsList = document.getElementById('skills-list');
   
-  if (!skillsContainer) {
-    console.error('Skills container element not found');
-    return;
-  }
+  // Clear any existing content
+  skillsList.innerHTML = '';
   
+  // Create and append skill icons
   skills.forEach(skill => {
-    // Create skill element
     const skillElement = document.createElement('div');
-    skillElement.className = 'skill-item';
+    skillElement.className = 'skill-logo';
+    skillElement.title = skill.name; // Add tooltip
     
-    // Create icon using Simple Icons CDN
-    const iconElement = document.createElement('img');
-    iconElement.src = `https://cdn.simpleicons.org/${skill.icon}/4078c0`;
-    iconElement.alt = `${skill.name} icon`;
-    iconElement.title = skill.name; // Add tooltip
-    iconElement.className = 'skill-icon';
+    // Create the image element using Simple Icons CDN
+    const iconImg = document.createElement('img');
+    iconImg.src = `https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/${skill.icon}.svg`;
+    iconImg.alt = skill.name;
+    iconImg.style.width = '30px';
+    iconImg.style.height = '30px';
     
-    // Create name element
-    const nameElement = document.createElement('span');
-    nameElement.textContent = skill.name;
-    nameElement.className = 'skill-name';
+    // Append the image to the skill element
+    skillElement.appendChild(iconImg);
     
-    // Append elements
-    skillElement.appendChild(iconElement);
-    skillElement.appendChild(nameElement);
-    skillsContainer.appendChild(skillElement);
+    // Append the skill element to the skills list
+    skillsList.appendChild(skillElement);
   });
 }
 
-// Run the render function when the DOM is loaded
+// Call the function when the DOM is loaded
 document.addEventListener('DOMContentLoaded', renderSkills);
